@@ -145,8 +145,8 @@ export default function RFQ() {
               border: 'none', cursor: loading ? 'wait' : 'pointer',
               width: '100%', transition: 'opacity 0.2s',
             }}
-            onMouseEnter={e => { if (!loading) (e.currentTarget as HTMLButtonElement).style.opacity = '0.85'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.opacity = '1'; }}
+            
+            
           >
             {loading ? 'SENDING...' : 'SEND QUOTE REQUEST'}
           </button>
