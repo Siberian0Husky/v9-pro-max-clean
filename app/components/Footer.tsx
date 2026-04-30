@@ -12,7 +12,6 @@ export default function Footer() {
           ))}
         </div>
       </div>
-
       <div className="container" style={{ padding: '56px 32px 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 48 }}>
           <div>
@@ -28,21 +27,18 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>PRODUCTS</div>
             {['M12 Connectors', 'M8 Connectors', 'Industrial Plugs', 'Automation Cables', 'Custom Solutions'].map(p => (
               <Link key={p} href="/products" style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10 }}>{p}</Link>
             ))}
           </div>
-
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>COMPANY</div>
             {[['About Us', '/about'], ['Products', '/products'], ['Get a Quote', '/rfq']].map(([label, href]) => (
               <Link key={href} href={href} style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10 }}>{label}</Link>
             ))}
           </div>
-
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>CONTACT</div>
             <div style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 2 }}>
@@ -52,24 +48,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
         <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <span style={{ color: 'var(--text3)', fontSize: 13, fontFamily: 'JetBrains Mono, monospace' }}>© 2024 GlobNexis Co., Ltd. All rights reserved.</span>
           <span style={{ color: 'var(--text3)', fontSize: 13 }}>M12 Connector Supplier · Industrial Connector Factory China</span>
         </div>
       </div>
-
-      <style>{`
-        footer a:hover { color: var(--accent) !important; }
-        @media (max-width: 768px) {
-          footer .container > div:first-child { grid-template-columns: 1fr 1fr !important; }
-          footer .container > div:first-child > div:first-child { grid-column: span 2; }
-        }
-        @media (max-width: 480px) {
-          footer .container > div:first-child { grid-template-columns: 1fr !important; }
-          footer .container > div:first-child > div:first-child { grid-column: span 1; }
-        }
-      `}</style>
+      <style>{`footer a:hover { color: var(--accent) !important; }`}</style>
     </footer>
   );
 }
