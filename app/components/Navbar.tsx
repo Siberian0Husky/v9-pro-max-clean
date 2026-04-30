@@ -26,29 +26,13 @@ export default function Navbar() {
           GLOB<span style={{ color: 'var(--accent)' }}>NEXIS</span>
         </Link>
 
-        {/* Desktop links */}
         <div style={{ display: 'flex', gap: 40, alignItems: 'center' }} className="desktop-nav">
           {[['Products', '/products'], ['About', '/about'], ['RFQ', '/rfq']].map(([label, href]) => (
-            <Link key={href} href={href} style={{
-              fontSize: 13, letterSpacing: '0.12em', textTransform: 'uppercase',
-              color: 'var(--text2)', fontWeight: 500,
-              transition: 'color 0.2s',
-            }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
-            >{label}</Link>
+            <Link key={href} href={href} className="nav-link">{label}</Link>
           ))}
-          <Link href="/rfq" style={{
-            background: 'var(--accent)', color: '#000', padding: '8px 20px',
-            fontFamily: 'Bebas Neue', fontSize: 16, letterSpacing: '0.08em',
-            transition: 'opacity 0.2s',
-          }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-          >GET QUOTE</Link>
+          <Link href="/rfq" className="nav-cta">GET QUOTE</Link>
         </div>
 
-        {/* Mobile hamburger */}
         <button onClick={() => setOpen(!open)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text)', display: 'none' }} className="mobile-menu-btn">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {open ? <><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
@@ -56,7 +40,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', padding: '20px 32px 24px', display: 'flex', flexDirection: 'column', gap: 20 }}>
           {[['Products', '/products'], ['About', '/about'], ['RFQ', '/rfq']].map(([label, href]) => (
@@ -67,6 +50,17 @@ export default function Navbar() {
       )}
 
       <style>{`
+        .nav-link {
+          font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+          color: var(--text2); font-weight: 500; transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-cta {
+          background: var(--accent); color: #000; padding: 8px 20px;
+          font-family: 'Bebas Neue', sans-serif; font-size: 16px;
+          letter-spacing: 0.08em; transition: opacity 0.2s;
+        }
+        .nav-cta:hover { opacity: 0.85; }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: block !important; }
