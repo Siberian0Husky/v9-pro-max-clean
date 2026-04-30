@@ -3,7 +3,6 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', marginTop: 80 }}>
-      {/* Ticker */}
       <div style={{ borderBottom: '1px solid var(--border)', overflow: 'hidden', padding: '10px 0', background: 'var(--bg3)' }}>
         <div style={{ display: 'flex', animation: 'ticker 28s linear infinite', whiteSpace: 'nowrap', width: 'max-content' }}>
           {Array(2).fill(['M12 CONNECTOR SUPPLIER', 'M8 CONNECTOR FACTORY', 'INDUSTRIAL PLUG WHOLESALE', 'AUTOMATION CABLE MANUFACTURER', 'CHINA FACTORY DIRECT', 'ISO 9001 CERTIFIED', 'GLOBAL SHIPPING']).flat().map((t, i) => (
@@ -16,7 +15,6 @@ export default function Footer() {
 
       <div className="container" style={{ padding: '56px 32px 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 48 }}>
-          {/* Brand */}
           <div>
             <div style={{ fontFamily: 'Bebas Neue', fontSize: 32, letterSpacing: '0.1em', marginBottom: 12 }}>
               GLOB<span style={{ color: 'var(--accent)' }}>NEXIS</span>
@@ -31,29 +29,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Products */}
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>PRODUCTS</div>
             {['M12 Connectors', 'M8 Connectors', 'Industrial Plugs', 'Automation Cables', 'Custom Solutions'].map(p => (
-              <Link key={p} href="/products" style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10, transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
-              >{p}</Link>
+              <Link key={p} href="/products" style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10 }}>{p}</Link>
             ))}
           </div>
 
-          {/* Company */}
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>COMPANY</div>
             {[['About Us', '/about'], ['Products', '/products'], ['Get a Quote', '/rfq']].map(([label, href]) => (
-              <Link key={href} href={href} style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10, transition: 'color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text2)')}
-              >{label}</Link>
+              <Link key={href} href={href} style={{ display: 'block', color: 'var(--text2)', fontSize: 14, marginBottom: 10 }}>{label}</Link>
             ))}
           </div>
 
-          {/* Contact */}
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.15em', color: 'var(--text3)', marginBottom: 20, fontFamily: 'JetBrains Mono, monospace' }}>CONTACT</div>
             <div style={{ color: 'var(--text2)', fontSize: 14, lineHeight: 2 }}>
@@ -71,6 +60,7 @@ export default function Footer() {
       </div>
 
       <style>{`
+        footer a:hover { color: var(--accent) !important; }
         @media (max-width: 768px) {
           footer .container > div:first-child { grid-template-columns: 1fr 1fr !important; }
           footer .container > div:first-child > div:first-child { grid-column: span 2; }
